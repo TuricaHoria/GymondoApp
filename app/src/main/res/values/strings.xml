@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Gymondo App</string>
+    <string name="category">Category:</string>
+    <string name="exercise_name">Exercise Name:</string>
+    <string name="equipment">Equipment:</string>
+    <string name="muscles">Muscles:</string>
+    <string name="search">Search</string>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="placeholder_category">Random category</string>
+    <string name="placeholder_exercise_name">Random name</string>
+    <string name="placeholder_equipment">Random equipment</string>
+    <string name="placeholder_muscles">Random muscles</string>
+</resources>
