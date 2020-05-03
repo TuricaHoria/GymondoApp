@@ -1,5 +1,6 @@
 package com.zignyl.gymondoapp.API
 
+import com.zignyl.gymondoapp.Models.Exercise
 import com.zignyl.gymondoapp.Models.Result
 import io.reactivex.Observable
 import retrofit2.Call
@@ -12,6 +13,6 @@ interface APIServices {
     @GET("exercise")
     fun getAllExercises(
         @Query("page") page : Int
-    ): Call<Result>
+    ): Observable<Result>
 
 }
