@@ -2,7 +2,25 @@
 
 
 
-I tried doing as much as possible in such a short time.
+I tried doing as much as possible but I had a lot of work and the server was down :
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+
+<head>
+	<title>503 Service Temporarily Unavailable</title>
+</head>
+
+<body>
+	<h1>Service Temporarily Unavailable</h1>
+	<p>The server is temporarily unable to service your
+		request due to maintenance downtime or capacity
+		problems. Please try again later.</p>
+	<hr>
+	<address>Apache/2.2.15 (CentOS) Server at wger.de Port 443</address>
+</body>
+
+</html>
 
 On how to solve the other problems:
 
