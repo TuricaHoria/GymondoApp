@@ -58,11 +58,10 @@ class ExerciseFragment : Fragment() {
         getExercises(1)
     }
 
-    @SuppressLint("CheckResult")
     fun getExercises(currentPage: Int) {
 
-
-            ClientRequestAPI.getExercises(page)
+        mCompositeDisposable?.add(
+            ClientRequestAPI.getExercises(currentPage)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(
@@ -81,40 +80,12 @@ class ExerciseFragment : Fragment() {
                             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
                     },
-                     { ERROR ->
+                    { ERROR ->
 
                         Log.e(TAG, "Error : ", ERROR)
                     }
-                )
+                ))
 
-
-
-        /*val request = RetrofitClientInstance.buildService(APIServices::class.java)
-
-        val call = request.getAllExercises(currentPage)
-        call.enqueue(object : Callback<Result> {
-            override fun onFailure(call: Call<Result>, t: Throwable) {
-                Toast.makeText(
-                    context,
-                    "Couldn't fetch the exercises",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-            override fun onResponse(call: Call<Result>, response: Response<Result>) {
-
-                val body = response.body()
-                exerciese = body?.results!!
-                mAdapter = ExercisesAdapter(exerciese) { id ->
-                    val bundle = Bundle()
-                    bundle.putInt(ARG_EXERCISEID, id)
-                    fragmentActions?.replaceFragment(bundle ,  DetailedExerciseFragment.TAG)
-                }
-                setUpRecyclerView(mAdapter!!)
-                page++
-            }
-        })
-*/
     }
 
     private fun setUpRecyclerView(adapter: ExercisesAdapter) {

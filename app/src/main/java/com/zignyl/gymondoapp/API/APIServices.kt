@@ -1,7 +1,6 @@
 package com.zignyl.gymondoapp.API
 
-import com.zignyl.gymondoapp.Models.Exercise
-import com.zignyl.gymondoapp.Models.Result
+import com.zignyl.gymondoapp.Models.*
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
@@ -12,7 +11,24 @@ interface APIServices {
 
     @GET("exercise")
     fun getAllExercises(
-        @Query("page") page : Int
+        @Query("page") page: Int
     ): Observable<Result>
 
+    @GET("exercise")
+    fun getSpecificExercise(
+        @Query("id") id: Int
+    ): Observable<Result>
+
+    @GET("equipment")
+    fun getEquipment(): Observable<Equipment>
+
+    @GET("muscle")
+    fun getMuscle(): Observable<Muscles>
+
+    @GET("exerciseimage")
+    fun getImageForExercise( @Query("exercise") id: Int) : Observable<ExerciseImage>
+
+
+
 }
+

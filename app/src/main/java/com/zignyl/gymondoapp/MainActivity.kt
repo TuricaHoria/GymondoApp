@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity(),FragmentActions {
             val transaction = manager.beginTransaction()
 
             val fragment = when (TAG) {
-                ExerciseFragment::class.java.simpleName ->
+                ExerciseFragment::class.java.name ->
                     ExerciseFragment.newInstance(bundle)
 
-                DetailedExerciseFragment::class.java.simpleName ->
+                DetailedExerciseFragment::class.java.name ->
                     DetailedExerciseFragment.newInstance(bundle)
 
 
