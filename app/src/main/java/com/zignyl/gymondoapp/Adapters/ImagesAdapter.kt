@@ -15,6 +15,7 @@ import com.zignyl.gymondoapp.R
 class ImagesAdapter(private val images: MutableList<ExerciseImage>) :
     RecyclerView.Adapter<ViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_exercise_iamge, parent, false)

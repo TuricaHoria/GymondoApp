@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClientInstance {
 
-    private val BASE_URL = "https://jsonplaceholder.typicode.com/"
+    private val BASE_URL = "https://wger.de/api/v2/"
 
     private val httpClient = OkHttpClient.Builder()
 

@@ -4,6 +4,7 @@ import com.zignyl.gymondoapp.Models.*
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 
@@ -14,10 +15,10 @@ interface APIServices {
         @Query("page") page: Int
     ): Observable<Result>
 
-    @GET("exercise")
+    @GET("exercise/{id}")
     fun getSpecificExercise(
-        @Query("id") id: Int
-    ): Observable<Result>
+        @Path("id") id: Int
+    ): Observable<Exercise>
 
     @GET("equipment")
     fun getEquipment(): Observable<Equipment>

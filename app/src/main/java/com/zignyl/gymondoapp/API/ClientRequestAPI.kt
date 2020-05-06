@@ -15,7 +15,7 @@ object ClientRequestAPI {
         return service.getAllExercises(page)
     }
 
-    fun getSpecificExercise(id: Int): Observable<Result> {
+    fun getSpecificExercise(id: Int): Observable<Exercise> {
         Log.d(ContentValues.TAG, "Getting the exercise with the id $id")
         return service.getSpecificExercise(id)
     }

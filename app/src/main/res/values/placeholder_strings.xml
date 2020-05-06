@@ -4,4 +4,5 @@
     <string name="placeholder_exercise_name">Random name</string>
     <string name="placeholder_equipment">Random equipment</string>
     <string name="placeholder_muscles">Random muscles</string>
+    <string name="placeholder_title">Here is the exercise title</string>
 </resources>

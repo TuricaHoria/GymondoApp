@@ -5,4 +5,5 @@
     <color name="colorAquamarine">#65FDC8</color>
     <color name="colorGymondo">#fd7e65</color>
     <color name="white">#ffffffff</color>
+    <color name="black">#000000</color>
 </resources>
