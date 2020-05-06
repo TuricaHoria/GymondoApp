@@ -5,11 +5,13 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zignyl.gymondoapp.API.ClientRequestAPI
 import com.zignyl.gymondoapp.Adapters.ExercisesAdapter
+import com.zignyl.gymondoapp.Models.Exercise
 import com.zignyl.gymondoapp.R
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -24,7 +26,7 @@ class ExerciseFragment : Fragment() {
     private var isLoading = false
     private var fragmentActions: FragmentActions? = null
     private var mCompositeDisposable: CompositeDisposable? = null
-    var searchView : androidx.appcompat.widget.SearchView ?=null
+    private var exercises : MutableList<Exercise>? = null
 
 
 
@@ -48,9 +50,24 @@ class ExerciseFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        et_search_field.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                mAdapter!!.filter.filter(newText)
+                setUpRecyclerView(mAdapter!!)
+                return false
+            }
+        })
+
         val linearLayoutManager = LinearLayoutManager(context)
         rv_exercices.layoutManager = linearLayoutManager
-        getExercises(currentPage)
+        getExercises(1)
+
+        Log.d(TAG,"Result is : $exercises")
 
         rv_exercices.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
@@ -127,6 +144,7 @@ class ExerciseFragment : Fragment() {
         rv_exercices.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
+
 
 
 }

@@ -3,6 +3,7 @@ package com.zignyl.gymondoapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(),FragmentActions {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
        replaceFragment(  TAG = ExerciseFragment::class.java.name)
+
     }
 
         override fun replaceFragment(bundle: Bundle?, TAG: String) {
@@ -70,13 +72,6 @@ class MainActivity : AppCompatActivity(),FragmentActions {
 
         override fun removeFragment(TAG: String) {
         }
-
-    fun replaceFragment(fragment: Fragment, tag: String) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment, tag).addToBackStack("").commit()
-    }
-
-
 
 
 }

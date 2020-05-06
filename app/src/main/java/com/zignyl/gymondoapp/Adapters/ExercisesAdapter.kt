@@ -10,8 +10,10 @@ import android.widget.Filterable
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.zignyl.gymondoapp.Fragments.ExerciseFragment.Companion.TAG
 import com.zignyl.gymondoapp.Models.Exercise
 import com.zignyl.gymondoapp.R
+import java.util.*
 
 class ExercisesAdapter(
     private val exerciseList: MutableList<Exercise>, val onExerciseSelected: (Int) -> Unit
@@ -71,9 +73,10 @@ class ExercisesAdapter(
                 if (constraint.isNullOrBlank()) {
                     searchableList = exerciseList
                 } else {
-                    val filterPattern = constraint.toString().toLowerCase().trim { it <= ' ' }
+                    val filterPattern = constraint.toString().toLowerCase(Locale.ROOT)
                     for (item in 0..exerciseList.size) {
-                        if (exerciseList[item].name!!.toLowerCase().contains(filterPattern)) {
+                        Log.d(TAG , "Size of the result list is ${exerciseList.size}")
+                        if (exerciseList[item].name.toLowerCase(Locale.ROOT).contains(filterPattern)) {
                             searchableList.add(exerciseList[item])
                         }
                     }
